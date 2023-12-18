@@ -21,4 +21,3 @@ the above command will
 1. start anvil instance
 2. deploy contracts (foundry)
 3. start dev server for frontend (vite)
-4. start indexer (ponder)
