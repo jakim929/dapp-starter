@@ -1,0 +1,11 @@
+{
+  "name": "@dapp-starter/contracts",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "anvil": "source .env.anvil && ((wait-on tcp:$ANVIL_PORT && forge script ./script/EtchBasicContracts.s.sol:EtchBasicContracts) & anvil --block-time 2 --silent --port $ANVIL_PORT)",
+    "deploy:anvil": "source .env.anvil && forge script ./script/DeployTestNFT.s.sol:DeployTestNFT --private-key $DEPLOYER_PRIVATE_KEY --rpc-url $JSON_RPC_HTTP_URL --broadcast -vvvv",
+    "dev": "source .env.anvil && concurrently -n anvil,deploy -c cyan,magenta \"pnpm run anvil\" \"pnpm run deploy:anvil\""
+  }
+}
